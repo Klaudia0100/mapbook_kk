@@ -4,7 +4,8 @@ import folium
 
 def read_data(users_data: list) -> None:
     for user in users_data:
-        print(f'twój znajomy {user['username']} z miejscowości {user['location']} opublikował {user['posts']} wiadomości. Ostatnia wiadomość {user['usermessage'][-1]}')
+        print(f'twój znajomy {user['username']} z miejscowości {user['location']} opublikował {user['posts']} '
+              f'wiadomości. Ostatnia wiadomość {user['usermessage'][-1]}')
 
 
 def add_user(users_data: list) -> None:
@@ -36,7 +37,8 @@ def update_user(users_data: list) -> None:
 def get_coordinates(location: str) -> list:
     url = f"https://pl.wikipedia.org/wiki/{location}"
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 '
+                      '(KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
     response = requests.get(url, headers=headers)
     response_html = BeautifulSoup(response.text, 'html.parser')
